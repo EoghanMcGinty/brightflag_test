@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Brightflag Code Test</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+<script src="js/main.js"></script>
+
+</head>
+<body ng-app="bfCodeTest">
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">BF Code Test</a>
+	</nav>
+	
+	<div class="container">
+	
+		<form name="studentForm" ng-controller="enrollCtrl" ng-submit="enroll()">			
+            <select  ng-controller=studentCtrl required ng-model="enrollForm.studentID" name="studentID">
+			    <option ng-repeat="student in students" value="{{student.studentID}}">{{student.firstName}} {{student.lastName}}</option>
+			</select>               
+			<input type="text" placeholder="Subject..." ng-model="enrollForm.subjectName" name="subjectName" required/>
+			<button type="submit" onClick="window.location.reload()">Enroll Student</button>
+		</form>
+	</div>
+	
+	<div ng-controller="studentCtrl" class="container">
+
+		<table class="table">
+			<tr>
+				<th>Student ID</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Subjects</th>
+			</tr>
+			<tr ng-repeat="student in students">
+				<td>{{student.studentID}}</td>
+				<td>{{student.firstName}}</td>
+				<td>{{student.lastName}}</td>
+				<td>{{student.subjects}}</td>
+			</tr>
+		</table>
+
+	</div>
+	<div ng-controller="subjectCtrl" class="container">
+
+		<table class="table">
+			<tr>
+				<th>Subject ID</th>
+				<th>Subject Name</th>
+				<th># Students</th>
+			</tr>
+			<tr ng-repeat="subject in subjects">
+				<td>{{subject.subjectID}}</td>
+				<td>{{subject.subjectName}}</td>
+				<td>{{subject.studentCount}}</td>
+			</tr>
+		</table>
+
+	</div>
+	<div ng-controller="resultCtrl" class="container">
+
+		<table class="table">
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Subject</th>
+				<th>Exam</th>
+				<th>Result</th>
+			</tr>
+			<tr ng-repeat="result in results">
+				<td>{{result.firstName}}</td>
+				<td>{{result.lastName}}</td>
+				<td>{{result.subjectName}}</td>
+				<td>{{result.examName}}</td>
+				<td>{{result.grade}}</td>
+			</tr>
+		</table>
+	</div>
+	
+	</body>
+</html>

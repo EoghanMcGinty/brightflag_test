@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: eoghan
+Build-Jdk: 11.0.4
+Implementation-Title: codetest
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.brightflag
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/codetest
+Created-By: Maven Integration for Eclipse
+
